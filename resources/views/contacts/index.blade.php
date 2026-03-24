@@ -32,8 +32,8 @@
                                 </thead>
                                 <tbody>
                                 @forelse($contacts as $id => $contact)
-                                    <tr>
-                                        <th scope="row">{{ $id }}</th>
+                                    <tr @if($loop->odd) class="table-primary" @endif>
+                                        <th scope="row">{{ $loop->index }}</th>
                                         <td>{{ $contact['name'] }}</td>
                                         <td>{{ $contact['phone'] }}</td>
                                         <td>alfred@test.com</td>
