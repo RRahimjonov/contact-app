@@ -31,7 +31,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($contacts as $id => $contact)
+                                @forelse($contacts as $id => $contact)
                                     <tr>
                                         <th scope="row">{{ $id }}</th>
                                         <td>{{ $contact['name'] }}</td>
@@ -44,7 +44,9 @@
                                             <a href="#" class="btn btn-sm btn-circle btn-outline-danger" title="Delete" onclick="confirm('Are you sure?')"><i class="fa fa-times"></i></a>
                                         </td>
                                     </tr>
-                                @endforeach
+                                @empty
+                                    <p>Contacts not found!</p>
+                                @endforelse
 
                                 </tbody>
                             </table>
