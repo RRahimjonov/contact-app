@@ -3,6 +3,7 @@
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ContactNoteController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\WelcomeController;
@@ -28,3 +29,5 @@ Route::resources([
 ]);
 
 Route::resource('/activities', ActivityController::class)->only('index', 'show');
+
+Route::resource('/contacts.notes', ContactNoteController::class);
