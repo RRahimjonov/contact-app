@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\CompanyRepository;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -16,12 +17,9 @@ class ContactController extends Controller
 
     }
 
-    public function index()
+    public function index(CompanyRepository $company)
     {
-        $companies = [
-            1 => ['name' => 'Company 1', 'contacts' => 3],
-            2 => ['name' => 'Company 2', 'contacts' => 5],
-        ];
+        $companies = $company->plunk();
         $contacts = $this->getContacts();
         return view('contacts.index', compact('contacts', 'companies'));
     }

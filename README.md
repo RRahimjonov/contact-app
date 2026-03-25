@@ -33,3 +33,4 @@ Bu Web ilova companiyalar uchun contact app vazifasini o'taydi, bu bilan o'zaro 
 #Controllers
 - Controller routelarni guruhlash
 - Single action controller yaratdim, <b>__invoke()</b> magic methodi bilan tanishdim
+- Dependency Injection
