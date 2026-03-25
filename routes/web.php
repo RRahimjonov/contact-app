@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TagController;
@@ -26,3 +27,4 @@ Route::resources([
     '/tasks' => TaskController::class
 ]);
 
+Route::resource('/activities', ActivityController::class)->only('index', 'show');
