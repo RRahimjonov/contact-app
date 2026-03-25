@@ -9,8 +9,11 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
+Route::controller(ContactController::class)->group(function(){
+    Route::get('/contacts', 'index')->name('contacts.index');
 
-Route::get('/contacts/{id}', [ContactController::class, 'show'])->whereNumber('id')->name('contacts.show');
+    Route::get('/contacts/{id}', 'show')->whereNumber('id')->name('contacts.show');
 
-Route::get('/contacts/create', [ContactController::class, 'create'])->name('contacts.create');
+    Route::get('/contacts/create', 'create')->name('contacts.create');
+});
+
