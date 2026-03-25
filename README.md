@@ -13,6 +13,7 @@ Bu Web ilova companiyalar uchun contact app vazifasini o'taydi, bu bilan o'zaro 
 
 ## O'rganilgan yangi tushunchalar va yondashuvlar
 
+# Views va Blades
  - Route bilan yuqori darajada ishlash:
             <ul>
                 <li>name berish</li>
@@ -28,3 +29,7 @@ Bu Web ilova companiyalar uchun contact app vazifasini o'taydi, bu bilan o'zaro 
 - Include: includeIf, includeWhen, includeUnless metodlari
 - View cache ahamiyati va mohiyati
 - forelse / empty / endforelse va lopp o'zrgaruvchisi dan foydalanish
+
+#Controllers
+- Controller routelarni guruhlash
+- Single action controller yaratdim, <b>__invoke()</b> magic methodi bilan tanishdim
