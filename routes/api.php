@@ -8,4 +8,10 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::apiResource('/contacts', ContactController::class);
+Route::apiResource('/contacts', ContactController::class)->names([
+    'index' => 'api.contacts.index',
+    'store' => 'api.contacts.store',
+    'show' => 'api.contacts.show',
+    'update' => 'api.contacts.update',
+    'destroy' => 'api.contacts.destroy',
+]);

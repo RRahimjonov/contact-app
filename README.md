@@ -7,13 +7,13 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About App
+# About App
 
 Bu Web ilova companiyalar uchun contact app vazifasini o'taydi, bu bilan o'zaro hamkor kompaniyaarning contact ma'lumotlarni saqlash mumkin va qulay
 
-## O'rganilgan yangi tushunchalar va yondashuvlar
+# O'rganilgan yangi tushunchalar va yondashuvlar
 
-# Views va Blades
+## Views va Blades
  - Route bilan yuqori darajada ishlash:
             <ul>
                 <li>name berish</li>
@@ -30,10 +30,11 @@ Bu Web ilova companiyalar uchun contact app vazifasini o'taydi, bu bilan o'zaro 
 - View cache ahamiyati va mohiyati
 - forelse / empty / endforelse va lopp o'zrgaruvchisi dan foydalanish
 
-#Controllers
+## Controllers
 - Controller routelarni guruhlash
 - Single action controller yaratdim, <b>__invoke()</b> magic methodi bilan tanishdim
 - Dependency Injection
 - Resource Controller yaratish, resource controller routelar yozish, partiail resource controller route yozish(only va except)
 - API resource routes
 - Nested resource
+- customizing resource names

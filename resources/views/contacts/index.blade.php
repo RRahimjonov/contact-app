@@ -32,7 +32,7 @@
                                 </thead>
                                 <tbody>
                                 @forelse($contacts as $id => $contact)
-                                    @include('contacts._contact', ['contact' => $contact])
+                                    @include('contacts._contact', ['contact' => $contact, 'id' => $id])
                                 @empty
                                     @include('contacts._empty')
                                 @endforelse

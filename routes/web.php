@@ -16,7 +16,7 @@ Route::get('/', WelcomeController::class)->name('welcome');
 Route::controller(ContactController::class)->name('contacts.')->group(function(){
     Route::get('/contacts', 'index')->name('index');
 
-    Route::get('/contacts/{id}', 'show')->whereNumber('id')->name('show');
+    Route::get('/contacts/{id}', 'show')->name('show')->whereNumber('id');
 
     Route::get('/contacts/create', 'create')->name('create');
 });
@@ -30,4 +30,4 @@ Route::resources([
 
 Route::resource('/activities', ActivityController::class)->only('index', 'show');
 
-Route::resource('/contacts.notes', ContactNoteController::class);
+Route::resource('/contacts.notes', ContactNoteController::class)->shallow();
