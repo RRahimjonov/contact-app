@@ -38,3 +38,8 @@ Bu Web ilova companiyalar uchun contact app vazifasini o'taydi, bu bilan o'zaro 
 - API resource routes
 - Nested resource
 - customizing resource names
+
+## Migrations
+- Migrationlar bilan table yartish
+- Yangi column qo'shish
+- Updating tables
