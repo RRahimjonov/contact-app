@@ -43,3 +43,7 @@ Bu Web ilova companiyalar uchun contact app vazifasini o'taydi, bu bilan o'zaro 
 - Migrationlar bilan table yartish
 - Yangi column qo'shish
 - Updating tables
+- Foreign key qo'shish
+- Laravel Query Builder(INSERT, SELECT, WHERE, ORDER, LIMIT, SKIP, UPDATE, DELETE, AGGREGATE, EXIST CHECK)
+- Seeding Database(database ni to'ldirish)
+- Database Seeder yaratish run qilish 
