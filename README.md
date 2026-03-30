@@ -49,3 +49,7 @@ Bu Web ilova companiyalar uchun contact app vazifasini o'taydi, bu bilan o'zaro 
 - Database Seeder yaratish, run qilish 
 - Seeder ichida Faker dan ofydalanish va databaseni fake data bilan to'ldirish
 
+## Eloquent ORM
+- Model nomlari qoidasi(singular: model & plural: table)
+- Model yaratish(va birdan model, migration va seeder yaratish)
+- 
