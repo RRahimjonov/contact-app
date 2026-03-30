@@ -46,4 +46,6 @@ Bu Web ilova companiyalar uchun contact app vazifasini o'taydi, bu bilan o'zaro 
 - Foreign key qo'shish
 - Laravel Query Builder(INSERT, SELECT, WHERE, ORDER, LIMIT, SKIP, UPDATE, DELETE, AGGREGATE, EXIST CHECK)
 - Seeding Database(database ni to'ldirish)
-- Database Seeder yaratish run qilish 
+- Database Seeder yaratish, run qilish 
+- Seeder ichida Faker dan ofydalanish va databaseni fake data bilan to'ldirish
+
