@@ -31,8 +31,8 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @forelse($contacts as $id => $contact)
-                                    @include('contacts._contact', ['contact' => $contact, 'id' => $id])
+                                @forelse($contacts as $contact)
+                                    @include('contacts._contact', ['contact' => $contact])
                                 @empty
                                     @include('contacts._empty')
                                 @endforelse

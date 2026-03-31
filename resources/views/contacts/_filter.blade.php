@@ -1,3 +1,6 @@
+@php
+    $companies = $contacts->pluck('company')->unique('id')
+@endphp
 <div class="row">
     <div class="col-md-6"></div>
     <div class="col-md-6">
