@@ -53,4 +53,7 @@ Bu Web ilova companiyalar uchun contact app vazifasini o'taydi, bu bilan o'zaro 
 - Model nomlari qoidasi(singular: model & plural: table)
 - Model yaratish(va birdan model, migration va seeder yaratish)
 - Eloquent(INSERT, UPDATE, DELTE)
-- 
+- Eloqunet(upsert)
+- Modellarni controllerda chaqirish
+- Eloquent Relationships - Querying models
+

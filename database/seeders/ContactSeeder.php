@@ -18,7 +18,7 @@ class ContactSeeder extends Seeder
         $faker = Faker::create();
         $contacts  = [];
         foreach ($companies as $company){
-            foreach(range(1, 5) as $index){
+            foreach(range(1, mt_rand(6, 10)) as $index){
                 $contact = [
                     'first_name' => $faker->firstName(),
                     'last_name' => $faker->lastName(),

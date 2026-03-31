@@ -12,7 +12,8 @@ class ContactController extends Controller
     public function index()
     {
         $contacts = Contact::latest()->get();
-        return view('contacts.index', compact('contacts'));
+        $companies = $contacts->pluck('company')->unique('id');
+        return view('contacts.index', compact('contacts', 'companies'));
     }
     public function show($id)
     {
