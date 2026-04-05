@@ -1,5 +1,5 @@
 <tr>
-    <th scope="row">{{ $loop->index }}</th>
+    <th scope="row">{{ $loop->index + $contacts->firstItem() }}</th>
     <td>{{ $contact->first_name }}</td>
     <td>{{ $contact->phone }}</td>
     <td>{{ $contact->email }}</td>

@@ -57,3 +57,4 @@ Bu Web ilova companiyalar uchun contact app vazifasini o'taydi, bu bilan o'zaro 
 - Modellarni controllerda chaqirish
 - Eloquent Relationships - Querying models
 
+
