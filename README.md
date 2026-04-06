@@ -56,5 +56,11 @@ Bu Web ilova companiyalar uchun contact app vazifasini o'taydi, bu bilan o'zaro 
 - Eloqunet(upsert)
 - Modellarni controllerda chaqirish
 - Eloquent Relationships - Querying models
+## Model Factories
+- Factory lar yaratish
+- Factory state lar yaratish
+- Factory sequence lar yaratish
+- Factory Relationship larini yaratish 
+- Factorylarni DatabaseSeederda ishlatish
 
 

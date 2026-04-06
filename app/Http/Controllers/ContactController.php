@@ -11,8 +11,8 @@ class ContactController extends Controller
 {
     public function index()
     {
+        $companies = Company::orderBy("name")->get();
         $contacts = Contact::latest()->paginate(10);
-        $companies = $contacts->pluck('company')->unique('id');
         return view('contacts.index', compact('contacts', 'companies'));
     }
     public function show($id)

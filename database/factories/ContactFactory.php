@@ -23,8 +23,7 @@ class ContactFactory extends Factory
             'last_name' => fake()->lastName(),
             'phone' => fake()->phoneNumber(),
             'email' => fake()->email(),
-            'address' => fake()->address(),
-            'company_id' => Company::pluck('id')->random()
+            'address' => fake()->address()
         ];
     }
 }
