@@ -1,6 +1,7 @@
 <div class="row">
     <div class="col-md-6"></div>
     <div class="col-md-6">
+        <form>
         <div class="row">
             @includeWhen(!empty($companies), 'contacts._company-selection')
             <div class="col">
@@ -12,12 +13,16 @@
                                aria-label="Search..."
                                aria-describedby="button-addon2"
                                name="search"
-                               value="{{ request('search') }}"
+                               id="search-input"
+                               value="{{ request()->query('search') }}"
                         >
                         <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button">
-                                <i class="fa fa-refresh"></i>
-                            </button>
+                            @if(request()->filled('search') || request()->filled('company_id'))
+                                <button class="btn btn-outline-secondary" type="button"
+                                onclick="document.getElementById('search-input').value = '', document.getElementById('search-select').selectedIndex = 0, this.form.submit()">
+                                    <i class="fa fa-refresh"></i>
+                                </button>
+                            @endif
                             <button class="btn btn-outline-secondary" type="submit" id="button-addon2">
                                 <i class="fa fa-search"></i>
                             </button>
@@ -26,5 +31,6 @@
                 </form>
             </div>
         </div>
+        </form>
     </div>
 </div>
