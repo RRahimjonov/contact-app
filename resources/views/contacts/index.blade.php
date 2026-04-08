@@ -41,7 +41,6 @@
                                 @endforelse
                                 </tbody>
                             </table>
-
                             {{ $contacts->withQueryString()->links() }}
                         </div>
                     </div>

@@ -34,9 +34,11 @@ class ContactController extends Controller
     public function create()
     {
         $companies = Company::orderBy("name")->get();
-        return view('contacts.create', compact('companies'));
+        $contact = new Contact();
+        return view('contacts.create', compact('companies', 'contact'));
     }
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $request->validate([
             'first_name' => 'required|string|max:50',
             'last_name' => 'required|string|max:50',
@@ -47,6 +49,29 @@ class ContactController extends Controller
         ]);
         Contact::create($request->all());
         return redirect()->route('contacts.index')->with('message', 'Contact added successfully');
+    }
+    public function edit($id)
+    {
+        $companies = Company::orderBy("name")->get();
+        $contact = Contact::findOrFail($id);
+        return view('contacts.edit', compact('contact', 'companies'));
+    }
 
-        
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'first_name' => 'required|string|max:50',
+            'last_name' => 'required|string|max:50',
+            'email' => 'required|email',
+            'phone' => 'nullable',
+            'address' => 'nullable',
+            'company_id' => 'required|exists:companies,id'
+        ]);
+
+        $contact = Contact::findOrFail($id);
+        $contact->update($request->all());
+
+        return redirect()->route('contacts.index')->with('message', 'Contact updated successfully');
+
+    }
 }

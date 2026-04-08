@@ -14,10 +14,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', WelcomeController::class)->name('welcome');
 
 Route::controller(ContactController::class)->name('contacts.')->group(function(){
+
     Route::get('/contacts', 'index')->name('index');
     Route::get('/contacts/create', 'create')->name('create');
     Route::get('/contacts/{id}', 'show')->name('show')->whereNumber('id');
+
     Route::post('/contacts', 'store')->name('store');
+    Route::get('/contacts/{id}/edit', 'edit')->name('edit')->whereNumber('id');
+    Route::put('/contacts/{id}', 'update')->name('update')->whereNumber('id');
 });
 
 Route::resource('/companies', CompanyController::class);
