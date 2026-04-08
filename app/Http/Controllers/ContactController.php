@@ -33,6 +33,18 @@ class ContactController extends Controller
     }
     public function create()
     {
-        return view('contacts.create');
+        $companies = Company::orderBy("name")->get();
+        return view('contacts.create', compact('companies'));
+    }
+    public function store(Request $request){
+        $request->validate([
+            'first_name' => 'required|string|max:50',
+            'last_name' => 'required|string|max:50',
+            'email' => 'required|email',
+            'phone' => 'nullable',
+            'address' => 'nullable',
+            'company_id' => 'required|exists:companies,id'
+        ]);
+        dd($request->all());
     }
 }
