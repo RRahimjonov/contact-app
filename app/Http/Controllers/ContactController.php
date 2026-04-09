@@ -12,7 +12,13 @@ class ContactController extends Controller
     public function index()
     {
         $companies = Company::orderBy("name")->get();
-        $contacts = Contact::latest()->where(function ($query) {
+        $query = Contact::query();
+
+        if(request()->query('trash')){
+            $query->onlyTrashed();
+        }
+
+        $contacts = $query->latest()->where(function ($query) {
             if ($companyId = request('company_id')) {
                 $query->where('company_id', $companyId);
             }
