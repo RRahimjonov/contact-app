@@ -16,7 +16,7 @@ class ContactController extends Controller
             if ($companyId = request('company_id')) {
                 $query->where('company_id', $companyId);
             }
-
+        })->where(function ($query){
             if ($search = request('search')) {
                 $query->where('first_name', 'like', '%' . $search . '%')
                     ->orWhere('last_name', 'like', '%' . $search . '%')
