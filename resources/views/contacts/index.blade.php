@@ -21,7 +21,17 @@
                             @includeIf('contacts._filter')
                             <table class="table table-striped table-hover">
                                 @if($message = session('message'))
-                                    <div class="alert alert-success">{{ $message }}</div>
+                                    <div class="alert alert-success">
+                                        {{ $message }}
+                                        @if($undoRoute = session('undoRoute'))
+                                            <form action="{{ $undoRoute }}" method="POST" style="display: inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn alert-link">Undo</button>
+                                            </form>
+
+                                        @endif
+                                    </div>
                                 @endif
                                 <thead>
                                 <tr>
