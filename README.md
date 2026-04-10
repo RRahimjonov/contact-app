@@ -95,6 +95,13 @@ Bu Web ilova companiyalar uchun contact app vazifasini o'taydi, bu bilan o'zaro 
 - Global Scopes ni reusable qilish
 - Local scope yaratish
 - Dynamic scope yaratish
+- Scopelarni reusable qilish
+
+## Route Model Bindings
+
+- Implicit Bindings
+- Implicit Binding on soft deleted models
+
 
 
 
