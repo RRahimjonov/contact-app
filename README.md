@@ -56,11 +56,43 @@ Bu Web ilova companiyalar uchun contact app vazifasini o'taydi, bu bilan o'zaro 
 - Eloqunet(upsert)
 - Modellarni controllerda chaqirish
 - Eloquent Relationships - Querying models
+
 ## Model Factories
 - Factory lar yaratish
 - Factory state lar yaratish
 - Factory sequence lar yaratish
 - Factory Relationship larini yaratish 
 - Factorylarni DatabaseSeederda ishlatish
+- 
+## Forms, Requests va Responses
+- HTML form bilan GET methoddan foydalanish
+- HTML form bilan POST methoddan foydalanish
+- Interacting with HTTP Request
+- Retrieving the incoming request data
+- Validating the incoming request data
+- Displaying validation error messages
+- Handling old inputs
+- Handling Http responses
+- Exercise 8 - HTML form bilan PUT method ishlatish
+- HTML form bilan DELETE method ishlatish
+- Searching data - Client side
+- Searching data - Server side
+
+## Soft Deletion
+
+- Soft deletionni sozlash
+- Soft deleting models
+- Querying soft deleted models
+- Changing the deletion behaviour
+- Displaying soft deleted models
+- Restore and force delete soft deleted models
+- Searching soft deleted models
+
+Markdown## Query Scopes
+
+- Global Scopes yaratish
+- Global Scopes ni olib tashlash (Removing global scopes)
+- Global Scopes ni reusable qilish
+
 
 
