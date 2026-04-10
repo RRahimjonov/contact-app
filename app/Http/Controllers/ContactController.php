@@ -18,7 +18,10 @@ class ContactController extends Controller
             $query->onlyTrashed();
         }
 
-        $contacts = $query->sortByNameAlpha()->filterByCompany()->search()->paginate(10);
+        $contacts = $query->allowedSorts('first_name')
+            ->allowedFilters('company_id')
+            ->allowedSearches(['first_name', 'last_name', 'email'])
+            ->paginate(10);
         return view('contacts.index', compact('contacts', 'companies'));
     }
     public function show($id)

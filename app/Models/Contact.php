@@ -25,27 +25,27 @@ class Contact extends Model
     }
 
     #[Scope]
-    protected function sortByNameAlpha(Builder $query): void
+    protected function allowedSorts(Builder $query, string $column): void
     {
-        $query->orderBy('first_name');
+        $query->orderBy($column);
     }
 
     #[Scope]
-    protected function filterByCompany(Builder $query): void
+    protected function allowedFilters(Builder $query, string $key): void
     {
-        if ($companyId = request('company_id')) {
-            $query->where('company_id', $companyId);
+        if ($companyId = request($key)) {
+            $query->where($key, $companyId);
         }
     }
 
     #[Scope]
-    protected function search(Builder $query): void
+    protected function allowedSearches(Builder $query, array $keys): void
     {
         if ($search = request('search')) {
-            $query->where('first_name', 'like', '%' . $search . '%')
-                ->orWhere('last_name', 'like', '%' . $search . '%')
-                ->orWhere('email', 'like', '%' . $search . '%')
-                ->orWhere('phone', 'like', '%' . $search . '%');
+            foreach ($keys as $index => $key){
+                $method = $index == 0 ? 'where' : 'orWhere';
+                $query->{$method}($key, 'like', '%' . $search . '%');
+            }
         }
     }
 

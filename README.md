@@ -93,6 +93,8 @@ Bu Web ilova companiyalar uchun contact app vazifasini o'taydi, bu bilan o'zaro 
 - Global Scopes yaratish
 - Global Scopes ni olib tashlash (Removing global scopes)
 - Global Scopes ni reusable qilish
+- Local scope yaratish
+- 
 
 
 
