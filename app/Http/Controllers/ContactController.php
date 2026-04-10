@@ -18,18 +18,7 @@ class ContactController extends Controller
             $query->onlyTrashed();
         }
 
-        $contacts = $query->latest()->where(function ($query) {
-            if ($companyId = request('company_id')) {
-                $query->where('company_id', $companyId);
-            }
-        })->where(function ($query){
-            if ($search = request('search')) {
-                $query->where('first_name', 'like', '%' . $search . '%')
-                    ->orWhere('last_name', 'like', '%' . $search . '%')
-                    ->orWhere('email', 'like', '%' . $search . '%')
-                    ->orWhere('phone', 'like', '%' . $search . '%');
-            }
-        })->paginate(10);
+        $contacts = $query->sortByNameAlpha()->filterByCompany()->search()->paginate(10);
         return view('contacts.index', compact('contacts', 'companies'));
     }
     public function show($id)

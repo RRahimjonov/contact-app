@@ -88,7 +88,7 @@ Bu Web ilova companiyalar uchun contact app vazifasini o'taydi, bu bilan o'zaro 
 - Restore and force delete soft deleted models
 - Searching soft deleted models
 
-Markdown## Query Scopes
+## Query Scopes
 
 - Global Scopes yaratish
 - Global Scopes ni olib tashlash (Removing global scopes)
