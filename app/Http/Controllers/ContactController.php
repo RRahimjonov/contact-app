@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContactRequest;
 use App\Models\Company;
 use App\Models\Contact;
-use App\Repositories\CompanyRepository;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -29,16 +29,8 @@ class ContactController extends Controller
         $contact = new Contact();
         return view('contacts.create', compact('companies', 'contact'));
     }
-    public function store(Request $request)
+    public function store(ContactRequest $request)
     {
-        $request->validate([
-            'first_name' => 'required|string|max:50',
-            'last_name' => 'required|string|max:50',
-            'email' => 'required|email',
-            'phone' => 'nullable',
-            'address' => 'nullable',
-            'company_id' => 'required|exists:companies,id'
-        ]);
         Contact::create($request->all());
         return redirect()->route('contacts.index')->with('message', 'Contact added successfully');
     }
@@ -48,19 +40,9 @@ class ContactController extends Controller
         return view('contacts.edit', compact('contact', 'companies'));
     }
 
-    public function update(Request $request, Contact $contact)
+    public function update(ContactRequest $request, Contact $contact)
     {
-        $request->validate([
-            'first_name' => 'required|string|max:50',
-            'last_name' => 'required|string|max:50',
-            'email' => 'required|email',
-            'phone' => 'nullable',
-            'address' => 'nullable',
-            'company_id' => 'required|exists:companies,id'
-        ]);
-
         $contact->update($request->all());
-
         return redirect()->route('contacts.index')->with('message', 'Contact has been updated successfully');
     }
 
