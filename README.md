@@ -102,7 +102,12 @@ Bu Web ilova companiyalar uchun contact app vazifasini o'taydi, bu bilan o'zaro 
 - Implicit Bindings
 - Implicit Binding on soft deleted models
 
+## Form Request Validation
 
+- Form Request Validation bilan tanishish
+- Validation attributelarini o‘zgartirish
+- Validation error xabarlarini customize qilish
+- Validatsiyadan oldin inputni tayyorlash (Preparing input before validation)
 
 
 

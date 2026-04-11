@@ -42,7 +42,8 @@ class ContactRequest extends FormRequest
     public function messages()
     {
         return [
-            'first_name.required' => 'Iltimos ism kiriting!'
+            'first_name.required' => 'Iltimos ism kiriting!',
+            '*.required' => ':attribute ni bo\'sh qoldirmang'
         ];
     }
 }
