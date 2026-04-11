@@ -31,4 +31,18 @@ class ContactRequest extends FormRequest
             'company_id' => 'required|exists:companies,id'
         ];
     }
+
+    public function attributes()
+    {
+        return [
+            'email' => 'email address'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'first_name.required' => 'Iltimos ism kiriting!'
+        ];
+    }
 }
