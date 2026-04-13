@@ -30,7 +30,12 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'max:255',
                 Rule::unique('users')->ignore($user->id),
             ],
-        ])->validateWithBag('updateProfileInformation');
+            'phone' => ['required', 'string', 'max:255'],
+            'company' => ['required', 'string', 'max:255'],
+            'country' => ['required', 'string', 'max:255'],
+            'address' => ['required', 'string', 'max:255'],
+            'profile_image' => ['required', 'image'],
+        ])->validate();
 
         if ($input['email'] !== $user->email &&
             $user instanceof MustVerifyEmail) {
@@ -39,6 +44,10 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $user->forceFill([
                 'name' => $input['name'],
                 'email' => $input['email'],
+                'phone' => $input['phone'],
+                'company' => $input['company'],
+                'country' => $input['country'],
+                'address' => $input['address'],
             ])->save();
         }
     }
@@ -53,6 +62,10 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         $user->forceFill([
             'name' => $input['name'],
             'email' => $input['email'],
+            'phone' => $input['phone'],
+            'company' => $input['company'],
+            'country' => $input['country'],
+            'address' => $input['address'],
             'email_verified_at' => null,
         ])->save();
 
