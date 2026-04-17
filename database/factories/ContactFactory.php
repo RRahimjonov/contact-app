@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Company;
 use App\Models\Contact;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -23,7 +24,9 @@ class ContactFactory extends Factory
             'last_name' => fake()->lastName(),
             'phone' => fake()->phoneNumber(),
             'email' => fake()->email(),
-            'address' => fake()->address()
+            'address' => fake()->address(),
+            'company_id' => Company::factory(),
+            'user_id' => User::factory(),
         ];
     }
 }

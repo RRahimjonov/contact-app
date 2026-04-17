@@ -29,4 +29,12 @@ class User extends Authenticatable implements MustVerifyEmail
             'password' => 'hashed',
         ];
     }
+
+    public function contacts(){
+        return $this->hasMany(Contact::class);
+    }
+
+    public function companies(){
+        return $this->hasMany(Company::class);
+    }
 }

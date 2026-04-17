@@ -14,8 +14,12 @@ class Company extends Model
     //protected $primaryKey = "_id"; va qaysi qator primaryKey ekanligini ham ta'yinlash mumkin
     protected $fillable = ['name', 'website', 'address', 'email'];
 
-    public function Contacts()
+    public function contacts()
     {
         return $this->hasMany(Contact::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }

@@ -17,7 +17,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(5)->create();
-        Company::factory(10)->has(Contact::factory(10)->hasTasks(2))->create();
+        $users = User::factory(10)->create(['password' => 'secret123']);
+
+        Company::factory(50)
+            ->recycle($users)
+            ->has(
+                Contact::factory(10)->recycle($users)
+            )->create();
+
     }
 }
