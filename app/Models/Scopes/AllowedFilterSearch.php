@@ -2,11 +2,17 @@
 
 namespace App\Models\Scopes;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Builder;
 
 trait AllowedFilterSearch
 {
+    #[Scope]
+    protected function forUser(Builder $query, User $user): void
+    {
+      $query->whereBelongsTo($user);
+    }
     #[Scope]
     protected function allowedFilters(Builder $query, ...$keys): void
     {

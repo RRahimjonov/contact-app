@@ -11,11 +11,12 @@ class ContactController extends Controller
 {
     public function index()
     {
-        $companies = Company::orderBy("name")->get();
+        $companies = Company::forUser(auth()->user())->orderBy("name")->get();
 
         $contacts = Contact::query()->allowedTrash()->allowedSorts('first_name')
             ->allowedFilters('company_id')
             ->allowedSearches('first_name', 'last_name', 'email')
+            ->forUser(auth()->user())
             ->paginate(10);
         return view('contacts.index', compact('contacts', 'companies'));
     }
@@ -25,18 +26,18 @@ class ContactController extends Controller
     }
     public function create()
     {
-        $companies = Company::orderBy("name")->get();
+        $companies = Company::forUser(auth()->user())->orderBy("name")->get();
         $contact = new Contact();
         return view('contacts.create', compact('companies', 'contact'));
     }
     public function store(ContactRequest $request)
     {
-        Contact::create($request->all());
+        $request->user()->contacts()->create($request->all());
         return redirect()->route('contacts.index')->with('message', 'Contact added successfully');
     }
     public function edit(Contact $contact)
     {
-        $companies = Company::orderBy("name")->get();
+        $companies = Company::forUser(auth()->user())->orderBy("name")->get();
         return view('contacts.edit', compact('contact', 'companies'));
     }
 

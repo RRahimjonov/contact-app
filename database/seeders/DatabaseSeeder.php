@@ -17,13 +17,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $users = User::factory(10)->create(['password' => 'secret123']);
-
-        Company::factory(50)
-            ->recycle($users)
-            ->has(
-                Contact::factory(10)->recycle($users)
-            )->create();
-
+        User::factory(10)->has(
+            Company::factory(10)->has(
+                Contact::factory(10)->state(function($attributes, Company $company){
+                    return [
+                        'user_id' => $company->user_id
+                    ];
+                })
+            )
+        )->create();
     }
 }
