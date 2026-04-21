@@ -51,7 +51,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'company' => $input['company'],
                 'country' => $input['country'],
                 'address' => $input['address'],
-                'profile_picture' => $input['profile_picture'] ?? $user->profile_picture,
+                'profile_picture' => $input['profile_picture']
             ])->save();
         }
     }
@@ -79,7 +79,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'company' => $input['company'],
             'country' => $input['country'],
             'address' => $input['address'],
-            'profile_picture'   => $input['profile_picture'] ?? $user->profile_picture,
+            'profile_picture'   => $input['profile_picture'],
             'email_verified_at' => null,
         ])->save();
 

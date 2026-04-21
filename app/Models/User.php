@@ -9,8 +9,9 @@ use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+ use Illuminate\Support\Facades\Storage;
 
-#[Fillable(['name', 'email', 'phone', 'company', 'country', 'address', 'profile_picture', 'password'])]
+ #[Fillable(['name', 'email', 'phone', 'company', 'country', 'address', 'profile_picture', 'password'])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -30,11 +31,21 @@ class User extends Authenticatable implements MustVerifyEmail
         ];
     }
 
-    public function contacts(){
+    public function contacts()
+    {
         return $this->hasMany(Contact::class);
     }
 
-    public function companies(){
+    public function companies()
+    {
         return $this->hasMany(Company::class);
+    }
+
+    public function profilePicture()
+    {
+        if($this->profile_picture && Storage::exists($this->profile_picture)){
+            return Storage::url($this->profile_picture);
+        }
+        return "https://ui-avatars.com/api/?name=".$this->name."&size=150";
     }
 }
