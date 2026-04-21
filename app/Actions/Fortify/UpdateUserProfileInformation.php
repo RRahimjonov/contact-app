@@ -58,7 +58,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
 
     protected function uploadProfilePicture(&$input){
         if(request()->hasFile('profile_picture')){
-           $filename = Storage::putFile('profile', $input['profile_picture']);
+            $uploadedFile = $input['profile_picture'];
+           $filename = $uploadedFile->store('profile');
            $input['profile_picture'] = $filename;
         }
     }
