@@ -25,19 +25,7 @@
                         <div class="card-body">
                             @includeIf('contacts._filter')
                             <table class="table table-striped table-hover">
-                                @if($message = session('message'))
-                                    <div class="alert alert-success">
-                                        {{ $message }}
-                                        @if($undoRoute = session('undoRoute'))
-                                            <form action="{{ $undoRoute }}" method="POST" style="display: inline">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn alert-link">Undo</button>
-                                            </form>
-
-                                        @endif
-                                    </div>
-                                @endif
+                                @include('shared.flash')
                                 <thead>
                                 <tr>
                                     <th scope="col">#</th>
@@ -52,7 +40,7 @@
                                 @forelse($contacts as $contact)
                                     @include('contacts._contact', ['contact' => $contact])
                                 @empty
-                                    @include('contacts._empty')
+                                    @include('shared.empty', ['numCol' => 6, 'message' => 'No contact found'])
                                 @endforelse
                                 </tbody>
                             </table>
