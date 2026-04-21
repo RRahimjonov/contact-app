@@ -11,9 +11,10 @@ class ContactController extends Controller
 {
     public function index()
     {
-        $companies = Company::forUser(auth()->user())->orderBy("name")->get();
+        $companies = Company::query()->forUser(auth()->user())->orderBy("name")->get();
 
-        $contacts = Contact::query()->allowedTrash()->allowedSorts('first_name')
+        $contacts = Contact::query()->allowedTrash()
+            ->allowedSort('first_name')
             ->allowedFilters('company_id')
             ->allowedSearches('first_name', 'last_name', 'email')
             ->forUser(auth()->user())
@@ -26,7 +27,7 @@ class ContactController extends Controller
     }
     public function create()
     {
-        $companies = Company::forUser(auth()->user())->orderBy("name")->get();
+        $companies = Company::quey()->forUser(auth()->user())->orderBy("name")->get();
         $contact = new Contact();
         return view('contacts.create', compact('companies', 'contact'));
     }
@@ -37,7 +38,7 @@ class ContactController extends Controller
     }
     public function edit(Contact $contact)
     {
-        $companies = Company::forUser(auth()->user())->orderBy("name")->get();
+        $companies = Company::query()->forUser(auth()->user())->orderBy("name")->get();
         return view('contacts.edit', compact('contact', 'companies'));
     }
 

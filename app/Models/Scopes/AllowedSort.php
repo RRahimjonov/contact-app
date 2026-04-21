@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
 trait AllowedSort
 {
     #[Scope]
-    protected function allowedSorts(Builder $query, string $column): void
+    protected function allowedSort(Builder $query, string $column): void
     {
         $query->orderBy($column);
     }
