@@ -3,12 +3,21 @@
 @section('title', 'Contact App | Profile Settings')
 
 @section('content')
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <main class="py-5">
         <div class="container">
             <div class="row">
                 @include('settings._sidenav')
                 <div class="col-md-9">
-                    <form action="{{ route('user-profile-information.update') }}" method="POST">
+                    <form action="{{ route('user-profile-information.update') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="card">
@@ -34,22 +43,31 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="phone">Phone</label>
-                                            <input type="text" name="phone" value="{{ old('phone', $user->phone) }}" id="phone" class="form-control">
-                                            @error('name')
+                                            <input type="text" name="phone" value="{{ old('phone', $user->phone) }}" id="phone" class="form-control @error('phone') is-invalid @enderror">
+                                            @error('phone')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="company">Company</label>
-                                            <input type="text" name="company" value="{{ old('company', $user->company) }}" id="company" class="form-control">
+                                            <input type="text" name="company" value="{{ old('company', $user->company) }}" id="company" class="form-control @error('company') is-invalid @enderror">
+                                            @error('company')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="country">Country</label>
-                                            <input type="text" name="country" value="{{ old('country', $user->country) }}" id="country" class="form-control">
+                                            <input type="text" name="country" value="{{ old('country', $user->country) }}" id="country" class="form-control @error('country') is-invalid @enderror">
+                                            @error('country')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="address">Address</label>
-                                            <textarea name="address" id="address" rows="2" class="form-control">{{ old('address', $user->address) }}</textarea>
+                                            <textarea name="address" id="address" rows="2" class="form-control @error('address') is-invalid @enderror">{{ old('address', $user->address) }}</textarea>
+                                            @error('address')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="offset-md-1 col-md-3">
@@ -64,7 +82,7 @@
                                                 <div class="mt-2">
                         <span class="btn btn-outline-secondary btn-file"><span class="fileinput-new">Select
                             image</span><span class="fileinput-exists">Change</span><input type="file"
-                                                                                           name="profile_picture"></span>
+                                                                                           name="profile_picture" accept="image/*"></span>
                                                     <a href="#" class="btn btn-outline-secondary fileinput-exists"
                                                        data-dismiss="fileinput">Remove</a>
                                                 </div>

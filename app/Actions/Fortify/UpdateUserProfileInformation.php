@@ -4,6 +4,7 @@ namespace App\Actions\Fortify;
 
 use App\Models\User;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
@@ -30,12 +31,14 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'max:255',
                 Rule::unique('users')->ignore($user->id),
             ],
-            'phone' => ['required', 'string', 'max:255'],
-            'company' => ['required', 'string', 'max:255'],
-            'country' => ['required', 'string', 'max:255'],
-            'address' => ['required', 'string', 'max:255'],
-            'profile_image' => ['required', 'image'],
+            'phone' => ['nullable', 'string', 'max:255'],
+            'company' => ['nullable', 'string', 'max:255'],
+            'country' => ['nullable', 'string', 'max:255'],
+            'address' => ['nullable', 'string', 'max:255'],
+            'profile_picture' => ['nullable', 'image'],
         ])->validate();
+
+        $this->uploadProfilePicture($input);
 
         if ($input['email'] !== $user->email &&
             $user instanceof MustVerifyEmail) {
@@ -48,7 +51,15 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'company' => $input['company'],
                 'country' => $input['country'],
                 'address' => $input['address'],
+                'profile_picture' => $input['profile_picture'] ?? $user->profile_picture,
             ])->save();
+        }
+    }
+
+    protected function uploadProfilePicture(&$input){
+        if(request()->hasFile('profile_picture')){
+           $filename = Storage::putFile('profile', $input['profile_picture']);
+           $input['profile_picture'] = $filename;
         }
     }
 
@@ -66,6 +77,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'company' => $input['company'],
             'country' => $input['country'],
             'address' => $input['address'],
+            'profile_picture'   => $input['profile_picture'] ?? $user->profile_picture,
             'email_verified_at' => null,
         ])->save();
 
