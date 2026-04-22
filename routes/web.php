@@ -18,7 +18,7 @@ Route::get('/', WelcomeController::class)->name('welcome');
 
 Route::middleware(['auth', 'verified'])->group(function (){
 
-    Route::get('/dashboard', DashboardController::class);
+    Route::get('/dashboard', DashboardController::class)->name('dashboard');
     Route::get('/settings/profile-information', ProfileController::class)->name('user-profile-information.edit');
     Route::get('/settings/password', PasswordController::class)->name('user-password.edit');
     Route::resource('/contacts', ContactController::class);

@@ -5,7 +5,7 @@
     <td>{{ $company->email }}</td>
     <td>
         <a href="{{ route('contacts.index', ['company_id' => $company->id]) }}">
-            {{ $company->contacts->count() }}
+            {{ $company->contacts_count }}
         </a>
     </td>
     <td width="150">
