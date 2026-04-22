@@ -23,7 +23,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            @includeIf('contacts._filter')
+                            @includeIf('shared.filter', ['filterDropDown' => 'contacts._company-selection'])
                             <table class="table table-striped table-hover">
                                 @include('shared.flash')
                                 <thead>

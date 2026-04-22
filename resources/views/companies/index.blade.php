@@ -23,7 +23,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            @includeIf('companies._filter')
+                            @includeIf('shared.filter')
                             <table class="table table-striped table-hover">
                                 @include('shared.flash')
                                 <thead>
