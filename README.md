@@ -109,5 +109,41 @@ Bu Web ilova companiyalar uchun contact app vazifasini o'taydi, bu bilan o'zaro 
 - Validation error xabarlarini customize qilish
 - Validatsiyadan oldin inputni tayyorlash (Preparing input before validation)
 
+## Authentication
+- Laravel Fortify paketini sozlash
+- Foydalanuvchilarni ro'yxatdan o'tkazish (Registration)
+- Tizimga kirish (Login / Signing in)
+- Avtorizatsiyadan o'tgan foydalanuvchi ma'lumotlarini olish (Retrieving authenticated user)
+- Foydalanuvchini eslab qolish va tizimdan chiqish (Remembering users and signing out)
+- Routelarni himoyalash (Protecting routes from unauthenticated users)
+- Parolni tiklash funksiyasi (Password Reset: Request & Resetting)
+- Email tasdiqlash funksiyasini qo'shish (Email Verification)
+- Foydalanuvchi profil ma'lumotlarini tahrirlash formasi va yangilash
+- Profil ma'lumotlarini yangilash funksiyasini customize qilish
+- Foydalanuvchi parolini yangilash (Updating the user password)
+- Resurslarni foydalanuvchilarga bog'lash (Linking resources to users)
+- Faqat joriy foydalanuvchiga tegishli ma'lumotlarni ko'rsatish (Displaying current user's data)
+
+## Working with Laravel File Storage
+- File Storage tizimini sozlash (Setting up File Storage)
+- Fayllarni o'qish va saqlash (Reading and Storing Files)
+- Fayllarni nusxalash, ko'chirish va o'chirish (Copying, moving and deleting files)
+- Papkalar bilan ishlash (Working with Directories)
+- Ilovada File Storageni implementatsiya qilish
+- Fayllarni saqlashning boshqa foydali metodlari
+- Yuklangan faylni diskdan olib formada ko'rsatish
+
+## Query Optimization
+- Querylarni debug qilish (Debugging queries)
+- Lazy loading va Eager Loading farqlari
+- Bir nechta munosabatlarni bir vaqtda yuklash (Eager loading multiple relationships)
+- Ichma-ich munosabatlarni yuklash (Nested eager loading)
+- Eager loadingga cheklovlar qo'yish (Constraint eager loading)
+- Lazy eager loading usuli
+- Default eager loadingni sozlash
+- Bog'langan modellarni sanash (Counting related models)
+- Agregat funksiyalar bilan ishlash (Aggregate functions)
+
+
 
 
