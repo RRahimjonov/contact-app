@@ -150,4 +150,80 @@ Bu Web ilova companiyalar uchun contact app vazifasini o'taydi, bu bilan o'zaro 
 
 
 
+# Foydalanish
+
+Ushbu loyihani mahalliy (local) kompyuteringizda ishga tushirish uchun quyidagi qadamlarni bajaring:
+
+### 1. Loyihani clone qilish
+Avval loyihani GitHub-dan yuklab oling:
+```bash
+git clone <repository-url>
+cd contact-app
+```
+
+### 2. Kutubxonalarni o'rnatish
+PHP va JavaScript kutubxonalarini o'rnating:
+```bash
+composer install
+npm install
+```
+
+### 3. Muhitni sozlash (.env)
+`.env.example` faylidan nusxa olib, `.env` faylini yarating:
+```bash
+cp .env.example .env
+```
+Keyin quyidagi buyruq orqali ilova kalitini generatsiya qiling:
+```bash
+php artisan key:generate
+```
+
+### 4. Ma'lumotlar bazasini sozlash
+`.env` faylida MySQL ma'lumotlarini kiriting (ma'lumotlar bazasi nomini `contact_app` deb yarating yoki o'zingizga moslang):
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=contact_app
+DB_USERNAME=root
+DB_PASSWORD=sizning_parolingiz
+```
+
+Keyin migrationlarni ishga tushiring:
+```bash
+php artisan migrate --seed
+```
+
+### 5. Email (Mailtrap) sozlamalari
+Ilovada email xabarlarini (masalan, parolni tiklash yoki email tasdiqlash) test qilish uchun [Mailtrap](https://mailtrap.io/) xizmatidan foydalanishingiz mumkin. 
+`.env` faylidagi quyidagi qatorlarni o'zingizning Mailtrap ma'lumotlaringiz bilan to'ldiring:
+
+```env
+MAIL_MAILER=smtp
+MAIL_HOST=sandbox.smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=sizning_username
+MAIL_PASSWORD=sizning_password
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="info@contact-app.uz"
+MAIL_FROM_NAME="${APP_NAME}"
+```
+
+### 6. Ilovani ishga tushirish
+Front-end assetlarni build qiling va serverni ishga tushiring:
+
+```bash
+# Birinchi terminalda:
+npm run dev
+
+# Ikkinchi terminalda:
+php artisan serve
+```
+
+Endi brauzeringizda `http://localhost:8000` manziliga kirishingiz mumkin.
+
+
+
+
 
