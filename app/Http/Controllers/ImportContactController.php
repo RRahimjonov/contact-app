@@ -16,7 +16,13 @@ class ImportContactController extends Controller
 
         $rows = $request->getCsvRows();
 
+        $importedData = 0;
+        $invalidData = 0;
         foreach($rows as $row){
+            if(count($row) < 5){
+                $invalidData++;
+                continue;
+            }
             $request->user()->contacts()->create([
                 'first_name' => $row[0],
                 'last_name' => $row[1],
@@ -25,8 +31,13 @@ class ImportContactController extends Controller
                 'address' => $row[4],
                 'company_id' => $request->company_id
             ]);
+            $importedData++;
         }
-
-        return redirect()->route('contacts.index')->with('message', 'Imported successfully');
+         if( $importedData === 0){
+             return redirect()->back()
+                 ->withErrors(['csv' => 'No contacts were imported. Please check your CSV format and try again.']);
+         }
+        return redirect()->route('contacts.index')
+            ->with('message', $importedData .' contacts imported and '. $invalidData. ' invalid rows detected!');
     }
 }

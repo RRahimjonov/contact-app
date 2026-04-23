@@ -143,7 +143,10 @@ Bu Web ilova companiyalar uchun contact app vazifasini o'taydi, bu bilan o'zaro 
 - Default eager loadingni sozlash
 - Bog'langan modellarni sanash (Counting related models)
 - Agregat funksiyalar bilan ishlash (Aggregate functions)
-- 
+
+## Export va Import
+- .csv fayldan ma'lum9otlarni import qilish
+- databse da ma'lumotlarni .csv faylga solib export qilish
 
 
 
